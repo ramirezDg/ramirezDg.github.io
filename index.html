@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Daniel Ramirez Gil — Desarrollador Full Stack en Pereira, Colombia. Especializado en React, Laravel y NestJs. Disponible para proyectos y colaboraciones."
+        />
+        <meta
+            name="keywords"
+            content="desarrollador full stack, React, Laravel, CodeIgniter, PHP, TypeScript, Pereira, Colombia, portafolio"
+        />
+        <meta name="author" content="Daniel Ramirez Gil" />
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Daniel Ramirez Gil — Desarrollador Full Stack" />
+        <meta
+            property="og:description"
+            content="Construyo software con propósito. Especializado en React, Laravel y CodeIgniter."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_CO" />
+
+        <title>Daniel Ramirez Gil — Desarrollador Full Stack</title>
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="styles.css" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+        <!-- Fonts: Syne (display) + DM Sans (body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <!-- Skip link for keyboard users -->
+        <a href="#main" class="skip-link">Saltar al contenido</a>
+
+        <!-- Mobile menu overlay -->
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+        <!-- ========== NAVIGATION ========== -->
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <a href="#hero" class="nav-logo" aria-label="Inicio - DRG">DRG</a>
+
+            <button
+                class="nav-toggle"
+                aria-label="Abrir menú de navegación"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-menu" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">Sobre mí</a></li>
+                <li role="none"><a href="#projects" role="menuitem">Proyectos</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Habilidades</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experiencia</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <main id="main">
+            <!-- ========== HERO ========== -->
+            <section class="hero" id="hero" aria-label="Presentación">
+                <div class="hero-bg-text" aria-hidden="true">CODE</div>
+
+                <div class="hero-content">
+                    <span class="hero-tag">Disponible para nuevos proyectos</span>
+                    <h1 class="hero-name">Daniel<br /><span>Ramirez Gil</span></h1>
+                    <p class="hero-role">Desarrollador Full Stack &middot; Pereira, Colombia</p>
+                    <p class="hero-desc">
+                        Desarrollador con experiencia en la creación de soluciones web escalables y
+                        de alto rendimiento. Especializado en React, Laravel y CodeIgniter, con un
+                        enfoque en arquitecturas limpias, código mantenible y experiencias de
+                        usuario excepcionales.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Contáctame</a>
+                        <a href="#projects" class="btn btn-outline">Ver proyectos</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="avatar-ring">
+                        <img
+                            class="hero-avatar"
+                            src="assets/avatar.jpg"
+                            alt="Foto de Daniel Ramirez Gil"
+                            loading="eager"
+                            width="290"
+                            height="290"
+                        />
+                        <span class="chip chip--1">React</span>
+                        <span class="chip chip--2">Laravel</span>
+                        <span class="chip chip--3">NestJS</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TECH STRIP ========== -->
+            <div class="tech-strip" aria-label="Tecnologías principales">
+                <span class="tech-strip-label">Stack</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Laravel</span>
+                <span class="tech-pill">CodeIgniter</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Angular</span>
+                <span class="tech-pill">NestJS</span>
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">Git</span>
+                <span class="tech-pill">Docker</span>
+            </div>
+
+            <!-- ========== ABOUT ========== -->
+            <section class="section" id="about" aria-labelledby="about-title">
+                <div class="container">
+                    <header class="section-header reveal">
+                        <p class="section-eyebrow">¿Quién soy?</p>
+                        <h2 class="section-title" id="about-title">
+                            Construyo software<br />con propósito
+                        </h2>
+                    </header>
+
+                    <div class="about-grid">
+                        <div class="about-text reveal">
+                            <p>
+                                Soy Desarrollador Full Stack radicado en Pereira, Colombia, con
+                                experiencia sólida en el diseño, desarrollo y optimización de
+                                aplicaciones web para entornos productivos reales. Me especializo en
+                                escribir código limpio, escalable y bien documentado, priorizando
+                                siempre la calidad y el impacto empresarial.
+                            </p>
+                            <p>
+                                Actualmente curso Ingeniería en Sistemas en la Universidad
+                                Tecnológica de Pereira (UTP), combinando mi formación académica con
+                                la construcción de soluciones modernas, desde CRMs corporativos
+                                hasta plataformas SaaS de arquitectura robusta.
+                            </p>
+                            <p>
+                                Me distinguen la proactividad, el trabajo colaborativo y una mejora
+                                continua orientada a dominar nuevas tecnologías que generen valor
+                                tangible en cada proyecto.
+                            </p>
+                        </div>
+
+                        <div class="stats-grid reveal-stagger">
+                            <div class="stat-card reveal">
+                                <div class="stat-num">2+</div>
+                                <div class="stat-label">
+                                    Años de experiencia en desarrollo web profesional
+                                </div>
+                            </div>
+                            <div class="stat-card reveal">
+                                <div class="stat-num">10+</div>
+                                <div class="stat-label">
+                                    Tecnologías en mi stack de desarrollo activo
+                                </div>
+                            </div>
+                            <div class="stat-card reveal">
+                                <div class="stat-num">UTP</div>
+                                <div class="stat-label">
+                                    Ingeniería en Sistemas &mdash; en formación
+                                </div>
+                            </div>
+                            <div class="stat-card reveal">
+                                <div class="stat-num">Col</div>
+                                <div class="stat-label">
+                                    Disponible para proyectos remotos y locales
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== PROJECTS ========== -->
+            <section
+                class="section projects-section"
+                id="projects"
+                aria-labelledby="projects-title"
+            >
+                <div class="container">
+                    <header class="section-header reveal">
+                        <p class="section-eyebrow">Portafolio</p>
+                        <h2 class="section-title" id="projects-title">Proyectos destacados</h2>
+                    </header>
+
+                    <!-- Carousel -->
+                    <div class="carousel reveal" id="projects-carousel">
+                        <button
+                            class="carousel-btn carousel-btn--prev"
+                            aria-label="Proyecto anterior"
+                            disabled
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <polyline points="15 18 9 12 15 6" />
+                            </svg>
+                        </button>
+
+                        <div class="carousel-viewport">
+                            <div class="carousel-track" id="carousel-track">
+                                <!-- Project 1: AgendaPro -->
+                                <article
+                                    class="project-card carousel-slide"
+                                    data-category="fullstack"
+                                >
+                                    <div class="project-thumb" aria-hidden="true">
+                                        <span>&#128197;</span>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-content">
+                                            <h3 class="project-title">AgendaPro</h3>
+                                            <p class="project-desc">
+                                                Plataforma SaaS multi-tenant diseñada para la
+                                                gestión integral de citas, agendas y expedientes.
+                                                Arquitectura white-label con formularios dinámicos y
+                                                automatización de recordatorios, optimizada para
+                                                clínicas, spas y consultorios.
+                                            </p>
+                                            <div class="project-tags">
+                                                <span class="project-tag">Laravel</span>
+                                                <span class="project-tag">React</span>
+                                                <span class="project-tag">PostgreSQL</span>
+                                                <span class="project-tag">Redis</span>
+                                            </div>
+                                            <div class="project-links">
+                                                <span
+                                                    class="project-link"
+                                                    style="
+                                                        color: var(--clr-text-muted);
+                                                        cursor: default;
+                                                    "
+                                                >
+                                                    En desarrollo
+                                                    <svg
+                                                        width="14"
+                                                        height="14"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    >
+                                                        <circle cx="12" cy="12" r="10" />
+                                                        <polyline points="12 6 12 12 16 14" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Project 2: CRM Template -->
+                                <article
+                                    class="project-card carousel-slide"
+                                    data-category="fullstack"
+                                >
+                                    <div class="project-thumb" aria-hidden="true">
+                                        <span>&#128188;</span>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-content">
+                                            <h3 class="project-title">CRM Template</h3>
+                                            <p class="project-desc">
+                                                Arquitectura base modular para sistemas de gestión
+                                                de relaciones con clientes (CRM). Incluye
+                                                autenticación robusta, módulos de ventas,
+                                                administración de contactos y generación de
+                                                reportes, escalable para múltiples sectores.
+                                            </p>
+                                            <div class="project-tags">
+                                                <span class="project-tag">Nest.Js</span>
+                                                <span class="project-tag">React</span>
+                                                <span class="project-tag">Postgresql</span>
+                                            </div>
+                                            <div class="project-links">
+                                                <a
+                                                    href="https://github.com/ramirezDg/crm-base"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="project-link"
+                                                    aria-label="Ver código fuente del CRM Template en GitHub"
+                                                >
+                                                    Ver en GitHub
+                                                    <svg
+                                                        width="14"
+                                                        height="14"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    >
+                                                        <path d="M7 17L17 7" />
+                                                        <path d="M7 7h10v10" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Project 3: lampp-tui -->
+                                <article
+                                    class="project-card carousel-slide"
+                                    data-category="backend"
+                                >
+                                    <div class="project-thumb" aria-hidden="true">
+                                        <span>&#128435;</span>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-content">
+                                            <h3 class="project-title">lampp-tui</h3>
+                                            <p class="project-desc">
+                                                Dashboard de terminal interactivo (TUI) para la
+                                                administración eficiente de servicios XAMPP/LAMPP.
+                                                Permite control de servicios, gestión multi-versión,
+                                                monitoreo de logs en tiempo real y atajos de
+                                                teclado, desarrollado en Go con Bubble Tea.
+                                            </p>
+                                            <div class="project-tags">
+                                                <span class="project-tag">Go</span>
+                                                <span class="project-tag">Bubble Tea</span>
+                                                <span class="project-tag">CLI / TUI</span>
+                                            </div>
+                                            <div class="project-links">
+                                                <a
+                                                    href="https://github.com/ramirezDg/lampp-tui"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="project-link"
+                                                    aria-label="Ver código fuente de lampp-tui en GitHub"
+                                                >
+                                                    Ver en GitHub
+                                                    <svg
+                                                        width="14"
+                                                        height="14"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    >
+                                                        <path d="M7 17L17 7" />
+                                                        <path d="M7 7h10v10" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Project 4: Tara -->
+                                <article
+                                    class="project-card carousel-slide"
+                                    data-category="fullstack"
+                                >
+                                    <div class="project-thumb" aria-hidden="true">
+                                        <span>&#128274;</span>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-content">
+                                            <h3 class="project-title">Tara</h3>
+                                            <p class="project-desc">
+                                                Sistema empresarial de trazabilidad, análisis de
+                                                riesgos y control documental, diseñado para
+                                                optimizar y asegurar los procesos de auditoría
+                                                institucional con altos estándares de seguridad.
+                                            </p>
+                                            <div class="project-tags">
+                                                <span class="project-tag">React</span>
+                                                <span class="project-tag">PostgreSQL</span>
+                                                <span class="project-tag">Java</span>
+                                                <span class="project-tag">Spring Boot</span>
+                                            </div>
+                                            <div class="project-links">
+                                                <span
+                                                    class="project-link"
+                                                    style="
+                                                        color: var(--clr-text-muted);
+                                                        cursor: default;
+                                                    "
+                                                >
+                                                    Proyecto privado en desarrollo
+                                                    <svg
+                                                        width="14"
+                                                        height="14"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    >
+                                                        <rect
+                                                            x="3"
+                                                            y="11"
+                                                            width="18"
+                                                            height="11"
+                                                            rx="2"
+                                                            ry="2"
+                                                        />
+                                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <button
+                            class="carousel-btn carousel-btn--next"
+                            aria-label="Siguiente proyecto"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                        </button>
+
+                        <!-- Dots -->
+                        <div
+                            class="carousel-dots"
+                            id="carousel-dots"
+                            role="tablist"
+                            aria-label="Navegación de proyectos"
+                        ></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SKILLS ========== -->
+            <section class="section" id="skills" aria-labelledby="skills-title">
+                <div class="container">
+                    <header class="section-header reveal">
+                        <p class="section-eyebrow">Habilidades técnicas</p>
+                        <h2 class="section-title" id="skills-title">Mi stack tecnológico</h2>
+                    </header>
+
+                    <div class="skills-ticker reveal">
+                        <!-- Backend -->
+                        <div class="ticker-row">
+                            <span class="ticker-label">Backend</span>
+                            <div class="ticker-track">
+                                <span class="ticker-item">PHP</span>
+                                <span class="ticker-item">Laravel</span>
+                                <span class="ticker-item">CodeIgniter</span>
+                                <span class="ticker-item">NestJS</span>
+                                <span class="ticker-item">REST APIs</span>
+                                <!-- Duplicate for seamless loop -->
+                                <span class="ticker-item">PHP</span>
+                                <span class="ticker-item">Laravel</span>
+                                <span class="ticker-item">CodeIgniter</span>
+                                <span class="ticker-item">NestJS</span>
+                                <span class="ticker-item">REST APIs</span>
+                            </div>
+                        </div>
+
+                        <!-- Frontend -->
+                        <div class="ticker-row">
+                            <span class="ticker-label">Frontend</span>
+                            <div class="ticker-track">
+                                <span class="ticker-item">React</span>
+                                <span class="ticker-item">TypeScript</span>
+                                <span class="ticker-item">Angular</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">Ant Design</span>
+                                <span class="ticker-item">Tailwind CSS</span>
+                                <span class="ticker-item">HTML / CSS</span>
+                                <!-- Duplicate -->
+                                <span class="ticker-item">React</span>
+                                <span class="ticker-item">TypeScript</span>
+                                <span class="ticker-item">Angular</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">Ant Design</span>
+                                <span class="ticker-item">Tailwind CSS</span>
+                                <span class="ticker-item">HTML / CSS</span>
+                            </div>
+                        </div>
+
+                        <!-- Bases de Datos -->
+                        <div class="ticker-row">
+                            <span class="ticker-label">Bases de Datos</span>
+                            <div class="ticker-track">
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MySQL</span>
+                                <span class="ticker-item">Redis</span>
+                                <span class="ticker-item">Eloquent ORM</span>
+                                <!-- Duplicate -->
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MySQL</span>
+                                <span class="ticker-item">Redis</span>
+                                <span class="ticker-item">Eloquent ORM</span>
+                            </div>
+                        </div>
+
+                        <!-- DevOps -->
+                        <div class="ticker-row">
+                            <span class="ticker-label">DevOps</span>
+                            <div class="ticker-track">
+                                <span class="ticker-item">Git</span>
+                                <span class="ticker-item">GitHub Actions</span>
+                                <span class="ticker-item">Docker</span>
+                                <span class="ticker-item">Linux</span>
+                                <span class="ticker-item">SSH</span>
+                                <span class="ticker-item">pnpm</span>
+                                <span class="ticker-item">JWT / Auth</span>
+                                <!-- Duplicate -->
+                                <span class="ticker-item">Git</span>
+                                <span class="ticker-item">GitHub Actions</span>
+                                <span class="ticker-item">Docker</span>
+                                <span class="ticker-item">Linux</span>
+                                <span class="ticker-item">SSH</span>
+                                <span class="ticker-item">pnpm</span>
+                                <span class="ticker-item">JWT / Auth</span>
+                            </div>
+                        </div>
+
+                        <!-- Innovación y Desarrollo con IA -->
+                        <div class="ticker-row">
+                            <span class="ticker-label">Innovación y Desarrollo con IA</span>
+                            <div class="ticker-track">
+                                <span class="ticker-item">Desarrollo asistido por IA</span>
+                                <span class="ticker-item">Ingeniería de Prompts</span>
+                                <span class="ticker-item">Cursor / Copilot</span>
+                                <span class="ticker-item">Prototipado rápido</span>
+                                <!-- Duplicate -->
+                                <span class="ticker-item">Desarrollo asistido por IA</span>
+                                <span class="ticker-item">Ingeniería de Prompts</span>
+                                <span class="ticker-item">Cursor / Copilot</span>
+                                <span class="ticker-item">Prototipado rápido</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== EXPERIENCE ========== -->
+            <section
+                class="section experience-section"
+                id="experience"
+                aria-labelledby="experience-title"
+            >
+                <div class="container">
+                    <header class="section-header reveal">
+                        <p class="section-eyebrow">Trayectoria</p>
+                        <h2 class="section-title" id="experience-title">Experiencia profesional</h2>
+                    </header>
+
+                    <div class="timeline reveal-stagger">
+                        <div class="timeline-item reveal">
+                            <time class="timeline-date" datetime="2024-03"
+                                >Mar 2024 &mdash; Actualidad</time
+                            >
+                            <h3 class="timeline-role">Desarrollador Web</h3>
+                            <p class="timeline-company">
+                                Proyectos y Soluciones TI S.A.S &mdash; Pereira
+                            </p>
+                            <p class="timeline-desc">
+                                Desarrollo, implementación y mantenimiento de aplicaciones web en
+                                entornos de producción reales. Responsable de la escritura de código
+                                limpio, resolución de incidencias, pruebas unitarias y optimización
+                                de rendimiento. Colaboración activa en metodologías ágiles,
+                                revisiones de código (code reviews) y mejora continua de la
+                                arquitectura del software.
+                            </p>
+                        </div>
+
+                        <div class="timeline-item reveal">
+                            <time class="timeline-date" datetime="2023">2023 &mdash; 2024</time>
+                            <h3 class="timeline-role">Auxiliar de Sistemas</h3>
+                            <p class="timeline-company">
+                                VITAVI &mdash; Stragos Medical Solutions S.A.S, Cali
+                            </p>
+                            <p class="timeline-desc">
+                                Gestión integral y soporte de infraestructura informática.
+                                Configuración, mantenimiento preventivo y correctivo de hardware y
+                                software, administración de usuarios, ejecución de respaldos de
+                                información crítica y capacitación técnica al personal operativo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CONTACT ========== -->
+            <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+                <div class="container">
+                    <div class="contact-inner">
+                        <div class="contact-info reveal">
+                            <header class="section-header">
+                                <p class="section-eyebrow">Hablemos</p>
+                                <h2 class="section-title" id="contact-title">
+                                    ¿Tienes un proyecto en mente?<br />Construyámoslo juntos
+                                </h2>
+                            </header>
+                            <p>
+                                Estoy disponible para oportunidades laborales, proyectos freelance y
+                                colaboraciones tecnológicas. Escríbeme y conversemos sobre cómo
+                                puedo aportar valor a tu equipo o idea.
+                            </p>
+
+                            <div class="contact-channels">
+                                <a
+                                    href="mailto:ramirezgil.daniel27@gmail.com"
+                                    class="contact-channel"
+                                >
+                                    <span class="channel-icon" aria-hidden="true">&#9993;</span>
+                                    <span class="channel-text">
+                                        <small>Correo electrónico</small>
+                                        <span>ramirezgil.daniel27@gmail.com</span>
+                                    </span>
+                                </a>
+                                <a
+                                    href="https://linkedin.com/in/ramirezdg27"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="contact-channel"
+                                >
+                                    <span class="channel-icon" aria-hidden="true">&#128188;</span>
+                                    <span class="channel-text">
+                                        <small>LinkedIn</small>
+                                        <span>linkedin.com/in/ramirezdg27</span>
+                                    </span>
+                                </a>
+                                <a
+                                    href="https://github.com/ramirezDg"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="contact-channel"
+                                >
+                                    <span class="channel-icon" aria-hidden="true">&#128025;</span>
+                                    <span class="channel-text">
+                                        <small>GitHub</small>
+                                        <span>github.com/ramirezDg</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Contact form -->
+                        <form
+                            class="contact-form reveal"
+                            id="contact-form"
+                            action="https://formspree.io/f/xlgqovdy"
+                            method="POST"
+                            aria-label="Formulario de contacto"
+                            data-form-endpoint="https://formspree.io/f/xlgqovdy"
+                        >
+                            <input type="hidden" name="_subject" value="Nuevo contacto desde tu portafolio" />
+                            <input
+                                type="text"
+                                name="empresa"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                                style="position: absolute; left: -9999px"
+                            />
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form-input"
+                                    placeholder="Tu nombre completo"
+                                    required
+                                    autocomplete="name"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-input"
+                                    placeholder="tu@empresa.com"
+                                    required
+                                    autocomplete="email"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    class="form-textarea"
+                                    placeholder="Cuéntame sobre tu proyecto o idea..."
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-submit">
+                                Enviar mensaje
+                            </button>
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer" role="contentinfo">
+            <span class="footer-copy">&copy; 2026 Daniel Ramirez Gil</span>
+            <ul class="footer-links" aria-label="Links del pie de página">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <span class="footer-logo">DRG</span>
+        </footer>
+
+        <!-- JavaScript -->
+        <script src="main.js"></script>
+    </body>
+</html>
