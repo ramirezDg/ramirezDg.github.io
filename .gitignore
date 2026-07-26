@@ -1,0 +1,27 @@
+# AI tools & agents
+.atl/
+.opencode/
+.claude/
+.cursor/
+.aider*
+.copilot/
+
+# Agent skill files
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.agent*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
