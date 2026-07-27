@@ -10,13 +10,15 @@ const TRANSLATIONS = {
     nav_projects: 'Projects',
     nav_skills: 'Skills',
     nav_experience: 'Experience',
+    nav_education: 'Education',
     nav_contact: 'Contact',
 
     hero_available: 'Available for new projects',
     hero_role: 'Full Stack Developer · Pereira, Colombia',
-    hero_desc: 'Developer experienced in building scalable, high-performance web solutions. Specialized in React, Laravel and CodeIgniter, with a focus on clean architectures, maintainable code and exceptional user experiences.',
+    hero_desc: 'Developer experienced in building scalable, high-performance web solutions. Specialized in React, Laravel and NestJs, with a focus on clean architectures, maintainable code and exceptional user experiences.',
     hero_cta_contact: 'Contact me',
     hero_cta_projects: 'View projects',
+    hero_cta_cv: 'Download CV',
 
     about_eyebrow: 'Who am I?',
     about_title: 'Building software\nwith purpose',
@@ -30,6 +32,9 @@ const TRANSLATIONS = {
 
     projects_eyebrow: 'Portfolio',
     projects_title: 'Featured projects',
+    filter_all: 'All',
+    filter_fullstack: 'Full Stack',
+    filter_backend: 'Backend',
     proj_agendapro_desc: 'Multi-tenant SaaS platform for comprehensive management of appointments, schedules and records. White-label architecture with dynamic forms and reminder automation, optimized for clinics, spas and offices.',
     proj_crm_desc: 'Modular base architecture for customer relationship management systems. Includes robust authentication, sales modules, contact management and report generation — scalable across multiple sectors.',
     proj_lampp_desc: 'Interactive terminal dashboard (TUI) for efficient management of XAMPP/LAMPP services. Service control, multi-version management, real-time log monitoring and keyboard shortcuts — built in Go with Bubble Tea.',
@@ -55,6 +60,15 @@ const TRANSLATIONS = {
     exp2_role: 'Systems Assistant',
     exp2_desc: 'Comprehensive management and support of IT infrastructure. Configuration, preventive and corrective maintenance of hardware and software, user administration, critical information backups and technical training for operational staff.',
 
+    edu_eyebrow: 'Training',
+    edu_title: 'Education & Certifications',
+    edu_utp_period: '2025 — Present',
+    edu_utp_degree: 'Systems Engineering',
+    edu_utp_inst: 'Universidad Tecnológica de Pereira — In progress',
+    edu_cert_issued: 'Issued',
+    edu_usc_title: 'Virtual Information Systems Engineering',
+    edu_usc_semesters: '4 semesters completed',
+
     contact_eyebrow: "Let's talk",
     contact_title: "Got a project in mind?\nLet's build it together",
     contact_desc: 'I am available for job opportunities, freelance projects and technology collaborations. Write to me and let\'s discuss how I can add value to your team or idea.',
@@ -75,13 +89,15 @@ const TRANSLATIONS = {
     nav_projects: 'Proyectos',
     nav_skills: 'Habilidades',
     nav_experience: 'Experiencia',
+    nav_education: 'Formación',
     nav_contact: 'Contacto',
 
     hero_available: 'Disponible para nuevos proyectos',
     hero_role: 'Desarrollador Full Stack · Pereira, Colombia',
-    hero_desc: 'Desarrollador con experiencia en la creación de soluciones web escalables y de alto rendimiento. Especializado en React, Laravel y CodeIgniter, con un enfoque en arquitecturas limpias, código mantenible y experiencias de usuario excepcionales.',
+    hero_desc: 'Desarrollador con experiencia en la creación de soluciones web escalables y de alto rendimiento. Especializado en React, Laravel y NestJs, con un enfoque en arquitecturas limpias, código mantenible y experiencias de usuario excepcionales.',
     hero_cta_contact: 'Contáctame',
     hero_cta_projects: 'Ver proyectos',
+    hero_cta_cv: 'Descargar CV',
 
     about_eyebrow: '¿Quién soy?',
     about_title: 'Construyo software\ncon propósito',
@@ -95,6 +111,9 @@ const TRANSLATIONS = {
 
     projects_eyebrow: 'Portafolio',
     projects_title: 'Proyectos destacados',
+    filter_all: 'Todos',
+    filter_fullstack: 'Full Stack',
+    filter_backend: 'Backend',
     proj_agendapro_desc: 'Plataforma SaaS multi-tenant diseñada para la gestión integral de citas, agendas y expedientes. Arquitectura white-label con formularios dinámicos y automatización de recordatorios, optimizada para clínicas, spas y consultorios.',
     proj_crm_desc: 'Arquitectura base modular para sistemas de gestión de relaciones con clientes (CRM). Incluye autenticación robusta, módulos de ventas, administración de contactos y generación de reportes, escalable para múltiples sectores.',
     proj_lampp_desc: 'Dashboard de terminal interactivo (TUI) para la administración eficiente de servicios XAMPP/LAMPP. Permite control de servicios, gestión multi-versión, monitoreo de logs en tiempo real y atajos de teclado, desarrollado en Go con Bubble Tea.',
@@ -120,6 +139,15 @@ const TRANSLATIONS = {
     exp2_role: 'Auxiliar de Sistemas',
     exp2_desc: 'Gestión integral y soporte de infraestructura informática. Configuración, mantenimiento preventivo y correctivo de hardware y software, administración de usuarios, ejecución de respaldos de información crítica y capacitación técnica al personal operativo.',
 
+    edu_eyebrow: 'Formación',
+    edu_title: 'Educación y Certificaciones',
+    edu_utp_period: '2025 — Actualidad',
+    edu_utp_degree: 'Ingeniería en Sistemas',
+    edu_utp_inst: 'Universidad Tecnológica de Pereira — En curso',
+    edu_cert_issued: 'Expedición',
+    edu_usc_title: 'Ingeniería en Sistemas de Información Virtual',
+    edu_usc_semesters: '4 semestres cursados',
+
     contact_eyebrow: 'Hablemos',
     contact_title: '¿Tienes un proyecto en mente?\nConstruyámoslo juntos',
     contact_desc: 'Estoy disponible para oportunidades laborales, proyectos freelance y colaboraciones tecnológicas. Escríbeme y conversemos sobre cómo puedo aportar valor a tu equipo o idea.',
@@ -138,7 +166,7 @@ const TRANSLATIONS = {
 /* -- i18n engine -- */
 const I18N = (() => {
   const STORAGE_KEY = 'drg_lang';
-  let current = localStorage.getItem(STORAGE_KEY) || 'en';
+  let current = localStorage.getItem(STORAGE_KEY) || 'es';
 
   const apply = (lang) => {
     current = lang;
@@ -155,10 +183,14 @@ const I18N = (() => {
       if (el.children.length === 0) {
         el.textContent = t[key];
       } else {
-        /* Only update text node, leave child elements untouched */
+        /* Update each text node in order, splitting on \n to match <br /> children */
+        const parts = t[key].split('\n');
         const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-        const textNode = walker.nextNode();
-        if (textNode) textNode.textContent = t[key];
+        let i = 0;
+        let node;
+        while ((node = walker.nextNode()) && i < parts.length) {
+          node.textContent = parts[i++];
+        }
       }
     });
 
@@ -168,9 +200,15 @@ const I18N = (() => {
       if (t[key]) el.placeholder = t[key];
     });
 
-    /* Update lang button label */
+    /* Aria labels */
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+      const key = el.dataset.i18nAriaLabel;
+      if (t[key]) el.setAttribute('aria-label', t[key]);
+    });
+
+    /* Update lang button label — show the language you can switch TO */
     const label = document.getElementById('lang-label');
-    if (label) label.textContent = lang.toUpperCase();
+    if (label) label.textContent = lang === 'en' ? 'ES' : 'EN';
 
     /* Update page meta for the active lang */
     updateMeta(lang);
@@ -496,6 +534,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.hidden ? stopAuto() : (paused ? null : startAuto());
   });
 
+  /* Filter buttons */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
   requestAnimationFrame(init);
 })();
 
@@ -504,6 +555,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
   if (!nav) return;
   const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* -- 6b. FLOATING CV BUTTON VISIBILITY -- */
+(() => {
+  const fab = document.getElementById('cv-fab');
+  if (!fab) return;
+  const onScroll = () => fab.classList.toggle('is-visible', window.scrollY > 400);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
@@ -527,7 +587,8 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const formData = new FormData(form);
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '...'; }
-    setStatus('Sending...', 'info');
+    const lang = document.documentElement.lang;
+    setStatus(lang === 'es' ? 'Enviando...' : 'Sending...', 'info');
 
     try {
       const response = await fetch(endpoint, {
@@ -557,5 +618,54 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.textContent = lang === 'es' ? 'Enviar mensaje' : 'Send message';
       }
     }
+  });
+})();
+
+/* -- 8. IMAGE LIGHTBOX -- */
+(() => {
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lightbox-img');
+  const lbClose   = document.getElementById('lightbox-close');
+  if (!lightbox || !lbImg) return;
+
+  const open = (img) => {
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  };
+
+  const close = () => {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+    /* return focus to the thumb that triggered it */
+    if (lightbox._trigger) { lightbox._trigger.focus(); lightbox._trigger = null; }
+  };
+
+  /* Attach to all project thumbs that contain an img */
+  document.querySelectorAll('.project-thumb--screenshot, .project-thumb--portrait').forEach(thumb => {
+    const img = thumb.querySelector('img');
+    if (!img) return;
+    thumb.setAttribute('tabindex', '0');
+    thumb.setAttribute('role', 'button');
+    thumb.setAttribute('aria-label', `Preview ${img.alt}`);
+    const trigger = (e) => {
+      if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      lightbox._trigger = thumb;
+      open(img);
+    };
+    thumb.addEventListener('click', trigger);
+    thumb.addEventListener('keydown', trigger);
+  });
+
+  if (lbClose) lbClose.addEventListener('click', close);
+
+  /* Click outside image closes */
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
   });
 })();

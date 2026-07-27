@@ -450,6 +450,20 @@ body {
   box-shadow: 0 2px 8px rgba(245, 196, 0, 0.15);
 }
 
+/* Ghost button: minimal, for secondary actions */
+.btn-ghost {
+  background: transparent;
+  color: var(--clr-text-muted);
+  border: 1.5px solid var(--clr-border);
+}
+.btn-ghost:hover {
+  background: var(--clr-bg-elevated);
+  border-color: var(--clr-border-hover);
+  color: var(--clr-text);
+  transform: translateY(-2px);
+}
+.btn-ghost:active { transform: translateY(0); }
+
 /* Outline button */
 .btn-outline {
   background: transparent;
@@ -715,19 +729,20 @@ body {
   background: var(--clr-bg-card);
   border: 1.5px solid var(--clr-border);
   color: var(--clr-text-muted);
-  padding: var(--space-2) var(--space-5);
-  border-radius: 9999px;
-  font-size: var(--text-xs);
+  padding: var(--space-2) var(--space-6);
+  border-radius: 0.4rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   font-family: var(--font-body);
   cursor: pointer;
-  min-height: 40px;
+  min-height: 36px;
   min-width: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all var(--duration) var(--ease-out);
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .filter-btn:hover {
@@ -812,6 +827,50 @@ body {
   border-bottom: 1px solid var(--clr-border);
   position: relative;
   overflow: hidden;
+}
+
+/* Screenshot: llena la miniatura completa, zoom on hover */
+.project-thumb--screenshot {
+  padding: 0;
+  background: #0a0a0a;
+}
+.project-thumb--screenshot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 0;
+  transition: transform 600ms var(--ease-out);
+}
+.project-card:hover .project-thumb--screenshot img {
+  transform: scale(1.08);
+}
+
+/* Portrait: recorta al 16/9 de la tarjeta, el lightbox muestra la imagen completa */
+.project-thumb--portrait {
+  background: #0a0a0a;
+}
+.project-thumb--portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 600ms var(--ease-out);
+}
+.project-card:hover .project-thumb--portrait img {
+  transform: scale(1.08);
+}
+
+/* Cursor pointer en thumbs con imagen — indican que son clickeables */
+.project-thumb--screenshot,
+.project-thumb--portrait {
+  cursor: zoom-in;
 }
 
 .project-thumb::after {
@@ -1005,8 +1064,8 @@ body {
   }
 
   .filter-btn {
-    padding: var(--space-2) var(--space-3);
-    font-size: 0.7rem;
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-xs);
   }
 }
 
@@ -1185,44 +1244,146 @@ body {
 /* ============================================
    EDUCATION
    ============================================ */
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: var(--space-4);
+.education-section {
+  background: var(--clr-bg);
 }
 
-.edu-card {
+.edu-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Degree card — prominent */
+.edu-degree-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
   background: var(--clr-bg-card);
-  border: 1px solid var(--clr-border);
-  border-radius: 0.6rem;
-  padding: var(--space-6);
-  transition: all var(--duration) var(--ease-out);
-}
-.edu-card:hover {
-  border-color: var(--clr-border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--clr-accent-border);
+  border-radius: 0.75rem;
+  padding: var(--space-6) var(--space-8);
 }
 
-.edu-period {
+.edu-degree-badge {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--clr-accent);
+  background: var(--clr-accent-dim);
+  border: 1.5px solid var(--clr-accent-border);
+  border-radius: 0.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.edu-degree-info .edu-period {
   font-size: var(--text-xs);
   color: var(--clr-accent);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
-.edu-degree {
+.edu-degree-info .edu-degree {
   font-family: var(--font-display);
-  font-size: var(--text-base);
+  font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: var(--space-1);
 }
 
-.edu-inst {
+.edu-degree-info .edu-inst {
   font-size: var(--text-sm);
   color: var(--clr-text-muted);
+}
+
+/* Certs grid */
+.edu-certs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-4);
+}
+
+.edu-cert-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 0.6rem;
+  padding: var(--space-6) var(--space-6) var(--space-6) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--duration) var(--ease-out);
+}
+.edu-cert-card:hover {
+  border-color: var(--clr-accent-border);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Academic card — subtle accent border to distinguish from certs */
+.edu-cert-card--academic {
+  border-color: var(--clr-accent-border);
+  background: var(--clr-bg-elevated);
+}
+
+.edu-cert-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.edu-cert-issuer {
+  font-size: var(--text-xs);
+  color: var(--clr-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.edu-cert-date {
+  font-size: var(--text-xs);
+  color: var(--clr-text-muted);
+}
+
+.edu-cert-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.edu-cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.edu-cert-tags span {
+  background: var(--clr-bg-elevated);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  padding: 2px var(--space-2);
+  border-radius: 0.25rem;
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .edu-degree-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-6);
+  }
 }
 
 /* ============================================
@@ -1559,8 +1720,8 @@ body {
   }
 
   .filter-btn {
-    padding: var(--space-2) var(--space-3);
-    font-size: 0.7rem;
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-xs);
   }
 
   /* Ticker: label and track stack vertically */
@@ -1601,4 +1762,172 @@ body {
   }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================
+   FLOATING CV DOWNLOAD BUTTON (FAB)
+   ============================================ */
+.cv-fab {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 52px;
+  padding: 0 var(--space-6);
+  background: linear-gradient(135deg, var(--clr-accent) 0%, var(--clr-accent-light) 100%);
+  color: var(--clr-bg);
+  border-radius: 2rem;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(245, 196, 0, 0.3);
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-out),
+              transform 400ms var(--ease-out),
+              box-shadow 300ms var(--ease-out);
+  overflow: hidden;
+}
+
+.cv-fab.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.cv-fab:hover {
+  box-shadow: 0 8px 32px rgba(245, 196, 0, 0.45);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.cv-fab:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cv-fab-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .cv-fab {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    padding: 0 var(--space-4);
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-fab-label {
+    display: inline;
+  }
+}
+
+/* ============================================
+   CV DOWNLOAD CTA (in contact section)
+   ============================================ */
+.cv-download-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-6);
+  background: var(--clr-accent-dim);
+  border: 1.5px solid var(--clr-accent-border);
+  border-radius: 0.5rem;
+  color: var(--clr-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all var(--duration) var(--ease-out);
+}
+
+.cv-download-cta:hover {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 196, 0, 0.2);
+}
+
+.cv-download-cta svg:last-child {
+  transition: transform var(--duration) var(--ease-out);
+}
+.cv-download-cta:hover svg:last-child {
+  transform: translateY(2px);
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease-out);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: min(90vw, 1400px);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+  transform: scale(0.94);
+  transition: transform 300ms var(--ease-out);
+  display: block;
+  object-fit: contain;
+}
+
+.lightbox.is-open .lightbox-img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 50%;
+  color: var(--clr-text);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all var(--duration) var(--ease-out);
+}
+.lightbox-close:hover {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
 }
