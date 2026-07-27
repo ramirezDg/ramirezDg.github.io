@@ -671,3 +671,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
   });
 })();
+
+/* -- 9. AVATAR TOUCH TOGGLE (mobile) -- */
+(() => {
+  const ring = document.querySelector('.avatar-ring');
+  if (!ring) return;
+
+  ring.addEventListener('click', () => {
+    ring.classList.toggle('is-flipped');
+  });
+
+  /* Click fuera del avatar lo resetea */
+  document.addEventListener('click', (e) => {
+    if (!ring.contains(e.target)) ring.classList.remove('is-flipped');
+  });
+})();

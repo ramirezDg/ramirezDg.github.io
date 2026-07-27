@@ -562,20 +562,23 @@ body {
 }
 
 /* On hover: fade + scale base out, bring hover in */
-.avatar-ring:hover .avatar-base {
+.avatar-ring:hover .avatar-base,
+.avatar-ring.is-flipped .avatar-base {
   opacity: 0;
   transform: scale(0.92) rotate(-3deg);
   filter: blur(4px);
 }
 
-.avatar-ring:hover .avatar-hover {
+.avatar-ring:hover .avatar-hover,
+.avatar-ring.is-flipped .avatar-hover {
   opacity: 1;
   transform: scale(1) rotate(0deg);
   filter: blur(0) brightness(1);
 }
 
 /* Accent glow on the ring when hovering */
-.avatar-ring:hover {
+.avatar-ring:hover,
+.avatar-ring.is-flipped {
   border-color: var(--clr-accent);
   box-shadow: 0 0 32px rgba(245, 196, 0, 0.25);
   transition:
