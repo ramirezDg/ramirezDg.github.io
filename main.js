@@ -79,7 +79,7 @@ const TRANSLATIONS = {
     form_message: 'Message',
     form_message_ph: 'Tell me about your project or idea...',
     form_send: 'Send message',
-    form_title: 'Send me a message',
+    form_title: 'Contact me',
 
     footer_home: 'Home',
   },
@@ -159,7 +159,7 @@ const TRANSLATIONS = {
     form_message: 'Mensaje',
     form_message_ph: 'Cuéntame sobre tu proyecto o idea...',
     form_send: 'Enviar mensaje',
-    form_title: 'Envíame un mensaje',
+    form_title: 'Contáctame',
 
     footer_home: 'Inicio',
   },
@@ -677,12 +677,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const ring = document.querySelector('.avatar-ring');
   if (!ring) return;
 
-  ring.addEventListener('click', () => {
+  ring.addEventListener('click', (e) => {
+    e.stopPropagation();
     ring.classList.toggle('is-flipped');
   });
 
-  /* Click fuera del avatar lo resetea */
-  document.addEventListener('click', (e) => {
-    if (!ring.contains(e.target)) ring.classList.remove('is-flipped');
+  /* Click fuera resetea */
+  document.addEventListener('click', () => {
+    ring.classList.remove('is-flipped');
   });
 })();
