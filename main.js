@@ -68,6 +68,8 @@ const TRANSLATIONS = {
     edu_cert_issued: 'Issued',
     edu_usc_title: 'Systems Engineering',
     edu_usc_semesters: '4 semesters completed',
+    edu_univalle_degree: 'Information Systems Technologist',
+    edu_univalle_inst: 'Universidad del Valle',
 
     contact_eyebrow: "Let's talk",
     contact_title: "Got a project in mind?\nLet's build it together",
@@ -148,6 +150,8 @@ const TRANSLATIONS = {
     edu_cert_issued: 'Expedición',
     edu_usc_title: 'Ingeniería De Sistemas',
     edu_usc_semesters: '4 semestres cursados',
+    edu_univalle_degree: 'Tecnólogo en Sistemas de Información',
+    edu_univalle_inst: 'Universidad del Valle',
 
     contact_eyebrow: 'Hablemos',
     contact_title: '¿Tienes un proyecto en mente?\nConstruyámoslo juntos',
